@@ -14,7 +14,7 @@ mxd = arcpy.mapping.MapDocument("CURRENT")
 
 #Import data from ArcMap
 fileToConvert = arcpy.GetParameterAsText(0)
-listUID = arcpy.GetParameterAsText(1)
+listID = arcpy.GetParameterAsText(1)
 outLocation = arcpy.GetParameterAsText(2)
 
 #translate file into layer
@@ -22,10 +22,10 @@ lyr = arcpy.mapping.Layer(fileToConvert)
 lyr.name = "MyFile"
 ###arcpy.MakeTableView_management (fileToConvert, "tableNew")
 #declare array for UIDs
-UID = []
+ID = []
 
 #declare the file to open
-fin = open (listUID)
+fin = open (listID)
 
 #tell end user if there is an error
 if fin.closed:
@@ -34,15 +34,15 @@ if fin.closed:
 for line in fin:
 	#Turn each line in the file into an entry to the array
 	lineClear = str.strip ( line )
-	UID.append(lineClear)
- 
+	ID.append(lineClear)
+
 #declare array for file names
 
 fileName = []
 
 #make file names from UIDs
-for i in range (len(UID)):
-        fileName.append (UID[i] + ".dbf")
+for i in range (len(ID)):
+        fileName.append (ID[i] + ".dbf")
 
 filePath = []
 
@@ -53,13 +53,13 @@ for y in range (len(fileName)):
 for x in range (len(fileName)):
         arcpy.AddMessage(UID [x] + ", " + filePath[x])
 
-for z in range (len(UID)):
+for z in range (len(ID)):
 	#Extract out only the entries that are wanted 
     arcpy.AddMessage("enter final for loop")
     if lyr.name == "MyFile": 
-        lyr.definitionQuery = "client_id =" + "'" + UID[z] + "'"
+        lyr.definitionQuery = "client_id =" + "'" + ID[z] + "'"
         arcpy.AddMessage("narrow data")
 	#Convert the table into a dbf
-	arcpy.AddMessage("Converting UID " + UID[z])
+	arcpy.AddMessage("Converting UID " + ID[z])
 	#Error is here
 	arcpy.CopyRows_management(lyr, filePath[z])
