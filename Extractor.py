@@ -57,7 +57,8 @@ for z in range (len(ID)):
 	#Extract out only the entries that are wanted 
     arcpy.AddMessage("enter final for loop")
     if lyr.name == "MyFile": 
-        lyr.definitionQuery = "client_id =" + "'" + ID[z] + "'"
+    	#change $fieldName to the field that you are exreacting by
+        lyr.definitionQuery = "$fieldName =" + "'" + ID[z] + "'"
         arcpy.AddMessage("narrow data")
 	#Convert the table into a dbf
 	arcpy.AddMessage("Converting ID " + ID[z])
