@@ -51,7 +51,7 @@ for y in range (len(fileName)):
 
 #test file names
 for x in range (len(fileName)):
-        arcpy.AddMessage(UID [x] + ", " + filePath[x])
+        arcpy.AddMessage(ID [x] + ", " + filePath[x])
 
 for z in range (len(ID)):
 	#Extract out only the entries that are wanted 
@@ -60,6 +60,6 @@ for z in range (len(ID)):
         lyr.definitionQuery = "client_id =" + "'" + ID[z] + "'"
         arcpy.AddMessage("narrow data")
 	#Convert the table into a dbf
-	arcpy.AddMessage("Converting UID " + ID[z])
+	arcpy.AddMessage("Converting ID " + ID[z])
 	#Error is here
 	arcpy.CopyRows_management(lyr, filePath[z])
