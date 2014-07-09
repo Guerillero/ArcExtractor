@@ -16,11 +16,12 @@ mxd = arcpy.mapping.MapDocument("CURRENT")
 fileToConvert = arcpy.GetParameterAsText(0)
 listFieldValues = arcpy.GetParameterAsText(1)
 outLocation = arcpy.GetParameterAsText(2)
+fieldName = arcpy.GetParameterAsText(3)
 
 #translate file into layer
 lyr = arcpy.mapping.Layer(fileToConvert)
 lyr.name = "MyFile"
-###arcpy.MakeTableView_management (fileToConvert, "tableNew")
+
 #declare array for UIDs
 fieldValues = []
 
@@ -49,16 +50,11 @@ filePath = []
 for y in range (len(fileName)):
         filePath.append(outLocation + "\\" + fileName[y])
 
-#test file names
-for x in range (len(fileName)):
-        arcpy.AddMessage(fieldValues [x] + ", " + filePath[x])
-
 for z in range (len(fieldValues)):
 	#Extract out only the entries that are wanted 
-    arcpy.AddMessage("enter final for loop")
+    arcpy.AddMessage("Currently extracting "+ fieldValues[z] + " in " + fieldName)
     if lyr.name == "MyFile": 
-    	#change $fieldName to the field that you are exreacting by
-        lyr.definitionQuery = "$fieldName =" + "'" + fieldValues[z] + "'"
+        lyr.definitionQuery = fieldName + " =" + "'" + fieldValues[z] + "'"
         arcpy.AddMessage("narrow data")
 	#Convert the table into a dbf
 	arcpy.AddMessage("Converting: " + fieldValues[z])
