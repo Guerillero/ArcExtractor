@@ -9,3 +9,6 @@ This was tested in ArcMap 10.2.1 and may not work with other versions of the sof
 
 <h3>Developmental version</h3>
 The next version will contain its own ArcToolbox. The hope is that all the end user will need to provide is the list of fields.
+
+<h3>Colophon</h3>
+Special thanks to @MarkTraceur, @molly, and Stag for their help troublshooting my Python code.
