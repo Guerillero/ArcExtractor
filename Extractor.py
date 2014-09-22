@@ -17,8 +17,6 @@ fileToConvert = arcpy.GetParameterAsText(0)
 listFieldValues = arcpy.GetParameterAsText(1)
 outLocation = arcpy.GetParameterAsText(2)
 fieldName = arcpy.GetParameterAsText(3)
-#future place for field on what type of table to end up as
-spreadsheetType = arcpy.GetParameterAsText(4)
 
 
 #translate file into layer
@@ -63,9 +61,4 @@ for z in range (len(fieldValues)):
 	arcpy.AddMessage("Converting: " + fieldValues[z])
 	#Error is here
 	arcpy.CopyRows_management(lyr, filePath[z])
-
-if spreadsheetType == excel:
-	#convert dbf to excel
-if spreadsheetType == csv:
-	#convert dbf to csv
 
