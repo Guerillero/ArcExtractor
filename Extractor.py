@@ -1,8 +1,10 @@
-##################################################
-# Extract a dbtable for every UID in a geo-file  #
-# Written by Thomas Fish                         #
-# Released under the MIT License                 #
-##################################################
+##################################################################
+# Extract a dbtable for every instance of a value in a geo-file  #
+# Written by Thomas Fish                                         #
+# Released under the MIT License                                 #
+#                                                                #
+#                 FOR ARCMAP 10.X ONLY                           # 
+##################################################################
 
 #Start dependency tree
 import arcpy
