@@ -20,6 +20,14 @@ fieldName = arcpy.GetParameterAsText(3)
 #future place for field on what type of table to end up as
 spreadsheetType = arcpy.GetParameterAsText(4)
 
+if spreadsheetType == "dbf":
+	fileType = ".dbf"
+else if spreadsheetType == "csv":
+	fileType = ".txt"
+else if spreadsheetType == "txt":
+	fileType = ".txt"
+else
+	arcpy.AddMessage("ERROR: Not a valid file type")
 
 #translate file into layer
 lyr = arcpy.mapping.Layer(fileToConvert)
@@ -46,7 +54,7 @@ fileName = []
 
 #make file names from UIDs
 for i in range (len(fieldValues)):
-        fileName.append (fieldValues[i] + ".dbf")
+        fileName.append (fieldValues[i] + "fileType")
 
 filePath = []
 
@@ -63,9 +71,4 @@ for z in range (len(fieldValues)):
 	arcpy.AddMessage("Converting: " + fieldValues[z])
 	#Error is here
 	arcpy.CopyRows_management(lyr, filePath[z])
-
-if spreadsheetType == excel:
-	#convert dbf to excel
-if spreadsheetType == csv:
-	#convert dbf to csv
 
