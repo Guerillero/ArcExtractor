@@ -43,7 +43,7 @@ fin = open (listFieldValues)
 
 #tell end user if there is an error
 if fin.closed:
-	arcpy.AddMessage("File failed to open")
+	arcpy.AddMessage("ERROR: File failed to open")
 
 for line in fin:
 	#Turn each line in the file into an entry to the array
@@ -68,9 +68,5 @@ for z in range (len(fieldValues)):
     arcpy.AddMessage("Currently extracting "+ fieldValues[z] + " in " + fieldName)
     if lyr.name == "MyFile": 
         lyr.definitionQuery = fieldName + " =" + "'" + fieldValues[z] + "'"
-        arcpy.AddMessage("narrow data")
-	#Convert the table into a dbf
-	arcpy.AddMessage("Converting: " + fieldValues[z])
-	#Error is here
 	arcpy.CopyRows_management(lyr, filePath[z])
 
