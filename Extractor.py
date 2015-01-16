@@ -14,7 +14,7 @@ mxd = arcpy.mapping.MapDocument("CURRENT")
 
 
 # Import data from ArcMap
-fileToConvert = arcpy.GetParameterAsText(0) # 
+fileToConvert = arcpy.GetParameterAsText(0) #
 listFieldValues = arcpy.GetParameterAsText(1) #text file
 outLocation = arcpy.GetParameterAsText(2) #folder
 fieldName = arcpy.GetParameterAsText(3) # text field
