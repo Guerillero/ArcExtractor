@@ -5,29 +5,21 @@
 #                                                                #
 #                 FOR ARCMAP 10.X ONLY                           # 
 ##################################################################
+__Version__ = "0.2.0"
 
-#Start dependency tree
 import arcpy
+import dbf2csv
 
 # declare map
 mxd = arcpy.mapping.MapDocument("CURRENT")
 
 
 # Import data from ArcMap
-fileToConvert = arcpy.GetParameterAsText(0) #
-listFieldValues = arcpy.GetParameterAsText(1) #text file
-outLocation = arcpy.GetParameterAsText(2) #folder
-fieldName = arcpy.GetParameterAsText(3) # text field
-spreadsheetType = arcpy.GetParameterAsText(4) #text field -- Valid responses are dbf or txt
-
-if spreadsheetType == "dbf":
-    fileType = ".dbf"
-elif spreadsheetType == "csv":
-    fileType = ".txt"
-elif spreadsheetType == "txt":
-    fileType = ".txt"
-else:
-    arcpy.AddMessage("ERROR: Not a valid file type")
+fileToConvert = arcpy.GetParameterAsText(0)  # shapefile or GeoDatabase
+listFieldValues = arcpy.GetParameterAsText(1)  # text file
+outLocation = arcpy.GetParameterAsText(2)  # folder
+fieldName = arcpy.GetParameterAsText(3)  # text field
+spreadsheetType = arcpy.GetParameterAsText(4)  # text field -- Valid responses are dbf or csv
 
 # translate file into layer
 lyr = arcpy.mapping.Layer(fileToConvert)
@@ -39,7 +31,7 @@ fileName = []
 filePath = []
 
 # declare the file to open
-fin = open (listFieldValues)
+fin = open(listFieldValues)
 
 # tell end user if there is an error
 if fin.closed:
@@ -47,19 +39,23 @@ if fin.closed:
 
 for line in fin:
     # Turn each line in the file into an entry to the array
-    lineClear = str.strip ( line )
+    lineClear = str.strip(line)
     fieldValues.append(lineClear)
 
 # make file names from UIDs
-for i in range (len(fieldValues)):
-        fileName.append (fieldValues[i] + "fileType")
+for i in range(len(fieldValues)):
+        fileName.append(fieldValues[i] + ".dbf")
 
-for y in range (len(fileName)):
+for y in range(len(fileName)):
         filePath.append(outLocation + "\\" + fileName[y])
 
-for z in range (len(fieldValues)):
+for z in range(len(fieldValues)):
     # Extract out only the entries that are wanted
-    arcpy.AddMessage("Currently extracting "+ fieldValues[z] + " in " + fieldName)
+    arcpy.AddMessage("Currently extracting " + fieldValues[z] + " in " + fieldName)
     if lyr.name == "MyFile": 
         lyr.definitionQuery = fieldName + " =" + "'" + fieldValues[z] + "'"
     arcpy.CopyRows_management(lyr, filePath[z])
+fin.close()
+
+if spreadsheetType == ".csv":
+    dbf2csv.worker(outLocation, fieldValues, filePath)
