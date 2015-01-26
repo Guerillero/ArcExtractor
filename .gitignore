@@ -50,7 +50,7 @@ coverage.xml
 *.pot
 
 #Pycharm things
-.idea/
+.idea/**
 workspace.xml
 
 # Sphinx documentation
