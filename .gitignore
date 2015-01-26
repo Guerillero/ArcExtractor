@@ -49,6 +49,10 @@ coverage.xml
 *.log
 *.pot
 
+#Pycharm things
+.idea/
+workspace.xml
+
 # Sphinx documentation
 docs/_build/
 
