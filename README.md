@@ -1,10 +1,11 @@
 ArcExtractor
 ============
-This script extracts a dBase table (.dbf) or a comma separated file (.csv) for every instance of a value in a specific field. This is useful for moving data between ArcMap and an older program or if you need to move GIS data into several spreadsheets for analysis.
+This script extracts a dBase table (.dbf), a comma separated file (.csv), or a tab separated file (.tsv) for every instance of a value in a specific field. This is useful for moving data between ArcMap and an older program or if you need to move GIS data into several spreadsheets for analysis.
 
-<h3>V. 0.2.0</h3>
+<h3>V. 0.2.1</h3>
 Changes:
 * Added CSV support
+* Added TSV support
 * Speed fixes
 * Updated to PEP style
 
