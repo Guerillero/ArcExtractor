@@ -9,7 +9,7 @@ Changes:
 * Speed fixes
 * Updated to PEP style
 
-This was tested in ArcMap 10.2.1 and may not work with other versions of the software. Please let me know about any bugs.
+This has not been tested yet in ArcMap and may be unstable; past versions have been tested in in ArcMap 10.2.1. Please let me know about any bugs.
 
 <h4>Dependencies</h4>
 * `arcpy`
