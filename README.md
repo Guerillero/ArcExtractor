@@ -2,22 +2,25 @@ ArcExtractor
 ============
 This script extracts a dBase table (.dbf), a comma separated file (.csv), or a tab separated file (.tsv) for every instance of a value in a specific field. This is useful for moving data between ArcMap and an older program or if you need to move GIS data into several spreadsheets for analysis.
 
-<h3>V. 0.2.1</h3>
-Changes:
-* Added CSV support
-* Added TSV support
-* Speed fixes
-* Updated to PEP style
+V. 1.0.0
+-----------
+This has been tested in in ArcMap 10.2.1 and works, other versions of ArcMap may not have similar results. Please let me know about any bugs.
+###Changes
+* Bugfixes
+* Code moved into production
 
-This has not been tested yet in ArcMap and may be unstable; past versions have been tested in in ArcMap 10.2.1. Please let me know about any bugs.
-
-<h4>Dependencies</h4>
+Dependencies
+-----------
 * `arcpy`
 * `dbfread`
 * `csv`
 
-<h3>Developmental version</h3>
-Excel support is coming in v0.3.0
+History
+-----------
+* v. 1.0.0 ([link]()) - Mar 5, 2015
+* v. 0.2.0 (unofficial release) - Jan 28, 2015
+* v. 0.1.0 ([link](https://github.com/Guerillero/ArcExtractor/releases/tag/v0.1.0)) - Jun 17, 2014
 
-<h3>Colophon</h3>
+Colophon
+-----------
 Special thanks to @MarkTraceur, @molly, Stag, and Washingtion College GIS for their help.

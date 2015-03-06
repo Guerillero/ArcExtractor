@@ -31,9 +31,15 @@ def dbf2tsv(folder, values, dbfs):
         fout = open(tsvPath, 'w')
         commafile = csv.reader(fin, dialect=csv.excel)
         tabfile = csv.writer(fout, dialect=csv.excel_tab)
+        for line in commafile:
+            tabfile.writerow(line)
         os.remove(csvPath)
 
 
-def def2xls(path, value, dbfs):
-    dbf2csv(path, value, dbfs)
-    # TO DO: Excel Support
+# def dbf2xls(path, value, dbfs):
+#     dbf2csv(path, value, dbfs)
+#     # TO DO: Excel Support
+
+
+def dbf2foo():
+    return "!"

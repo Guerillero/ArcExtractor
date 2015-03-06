@@ -5,7 +5,7 @@
 #                                                                #
 #                 FOR ARCMAP 10.X ONLY                           #
 ##################################################################
-__Version__ = "0.2.0"
+__Version__ = "1.0.0"
 
 import arcpy
 import FileTransformations
@@ -61,5 +61,5 @@ if spreadsheetType == "csv":
     FileTransformations.dbf2csv(outLocation, fieldValues, filePath)
 elif spreadsheetType == "tsv":
     FileTransformations.dbf2tsv(outLocation, fieldValues, filePath)
-elif spreadsheetType == "xls":
-    FileTransformations.dbf2xls(outLocation, fieldValues, filePath)
+# elif spreadsheetType == "xls":
+#     FileTransformations.dbf2xls(outLocation, fieldValues, filePath)
