@@ -61,5 +61,3 @@ if spreadsheetType == "csv":
     FileTransformations.dbf2csv(outLocation, fieldValues, filePath)
 elif spreadsheetType == "tsv":
     FileTransformations.dbf2tsv(outLocation, fieldValues, filePath)
-# elif spreadsheetType == "xls":
-#     FileTransformations.dbf2xls(outLocation, fieldValues, filePath)

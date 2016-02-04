@@ -4,10 +4,7 @@ This script extracts a dBase table (.dbf), a comma separated file (.csv), or a t
 
 V. 1.0.0
 -----------
-This has been tested in in ArcMap 10.2.1 and works, other versions of ArcMap may not have similar results. Please let me know about any bugs.
-###Changes
-* Bugfixes
-* Code moved into production
+This has been tested in ArcMap 10.2 and 10.3 and works, other versions of ArcMap may not have similar results. I have no plans to develop this project any further beyond routine bugfixes.
 
 Dependencies
 -----------

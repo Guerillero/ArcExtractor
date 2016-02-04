@@ -35,11 +35,3 @@ def dbf2tsv(folder, values, dbfs):
             tabfile.writerow(line)
         os.remove(csvPath)
 
-
-# def dbf2xls(path, value, dbfs):
-#     dbf2csv(path, value, dbfs)
-#     # TO DO: Excel Support
-
-
-def dbf2foo():
-    return "!"
