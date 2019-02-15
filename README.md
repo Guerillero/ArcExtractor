@@ -17,7 +17,3 @@ History
 * v. 1.0.0 ([link]()) - Mar 5, 2015
 * v. 0.2.0 (unofficial release) - Jan 28, 2015
 * v. 0.1.0 ([link](https://github.com/Guerillero/ArcExtractor/releases/tag/v0.1.0)) - Jun 17, 2014
-
-Colophon
------------
-Special thanks to @MarkTraceur, @molly, Stag, and Washingtion College GIS for their help.
